@@ -1,0 +1,55 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+
+\title{Unique Binary Trees}
+\author{Low Jun Kai, Sean}
+\date\today
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\section*{Preface}
+
+Given an integer n, return the number of structurally unique BSTs (binary search trees) which has exactly n nodes of unique values from 1 to n
+
+\section*{Theorem} 
+
+Let the function $f(n)$ denote the function where given $n$ nodes, we get the \# of structurally unique BSTs. 
+
+\[
+    f(n) =
+    \left \{
+    \begin{array}{lr}
+      0 & \textbf{for } n = 0 \lor n = 1 \\
+      \sum^{n-1}_{i=0} f(i) \cdot f(n - i -1) & \textbf{for } n > 1 \\ 
+    \end{array}
+     \right \}
+\]
+
+\section*{Proof of Correctness}
+
+\begin{enumerate}
+
+\item To prove the two base cases are true is \textbf{trivial}
+
+\begin{enumerate}
+
+\item There is only 1 way to arrange a BST with 0 nodes
+
+\item There is only 1 way to arrange a BST with 1 node
+
+\end{enumerate}
+
+\item Assuming $f(n)$ is true, we have to prove that $f(n+1)$ holds true as well for some $n > 1$
+
+\item To prove the correctness of this is equivalent to \textbf{Proving the correctness of the closed formula for Catalan Numbers}. As a result, we will skip this proof for this exercise. 
+
+\end{enumerate}
+
+\end{document}
