@@ -1,0 +1,49 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+
+\title{Minimum ASCII Delete Sum for Two Strings}
+\author{Low Jun Kai, Sean}
+\date\today
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+\section*{Preface}
+
+Given two strings s1 and s2, return the lowest ASCII sum of deleted characters to make two strings equal.
+
+\section*{Theorem} 
+
+Let $f(i, j)$ denote the function of the lowest ASCII sum given indexes $i, j$ where $i$ is the index of the first string and $j$ is the index of the second string. Let us denote the strings to be $s_1[1...N] \land s_2[1...M]$
+
+\[
+    f(i, j) =
+    \left \{
+    \begin{array}{ll}
+      0 & \textbf{if } i = N \land n = M \\
+      \sum ASCII(s_2[j...M]) & \textbf{if } i = N \\ 
+      \sum ASCII(s_1[i...N]) & \textbf{if } j = M \\ 
+	  min( ASCII(s_1[i]) + f(i+1, j),  ASCII(s_2[j]) + f(i, j+1) ) & \textbf{otherwise} 
+    \end{array}
+     \right \} 
+\]
+
+\section*{Proof of Correctness} 
+
+\begin{enumerate}
+
+\item We can reduce the $MinASCIIDiff$ problem into the $LCS$ problem, aka the \textbf{Longest Common Subsequence Problem} 
+
+\item The reduction is trivial as this problem aim to remove the different characters to get the longest common subsequence 
+
+\item As a result, proving the correctness of the $MinASCIIDiff$ problem is \textbf{equivalent} to proving the correctness of the $LCS$ problem
+
+\end{enumerate}
+
+\end{document}
